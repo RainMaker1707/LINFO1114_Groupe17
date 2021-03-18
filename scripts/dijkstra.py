@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def dijkstra(G, a, b):
     """
     Return the shortest path between the vertices a and b by running the dijkstra algorithm
