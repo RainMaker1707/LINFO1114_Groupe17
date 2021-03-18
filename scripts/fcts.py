@@ -6,7 +6,6 @@ def csv_to_mtx(path):
 				mtx.append(line.strip().split(","))
 				for i in range(len(mtx[-1])):
 					mtx[-1][i] = int(mtx[-1][i])
-	except:
+	except FileNotFoundError:
 		pass
-
 	return mtx
