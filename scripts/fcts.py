@@ -5,7 +5,7 @@ def csv_to_mtx(path):
 			for line in file.readlines():
 				mtx.append(line.strip().split(","))
 				for i in range(len(mtx[-1])):
-					mtx[-1][i] = int(mtx[-1][i])
+					mtx[-1][i] = float(mtx[-1][i])
 	except FileNotFoundError:
 		pass
 	return mtx
