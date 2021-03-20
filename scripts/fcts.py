@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def csv_to_mtx(path):
 	mtx = []
 	try:
@@ -8,4 +11,4 @@ def csv_to_mtx(path):
 					mtx[-1][i] = float(mtx[-1][i])
 	except FileNotFoundError:
 		pass
-	return mtx
+	return np.array(mtx)

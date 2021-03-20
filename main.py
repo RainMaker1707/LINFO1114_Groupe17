@@ -12,8 +12,7 @@ if __name__ == "__main__":
             print(elem)
 
     C = csv_to_mtx('res/graph.csv')
-    import numpy as np
-    print(np.array(C))
+    print(C)
 
     print("Dijkstra")
     print(Dijkstra(C))  # print the matrix returned by Dijkstra algorithm
