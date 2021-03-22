@@ -1,4 +1,5 @@
 #         A,B,C,D
+import numpy as np
 """
 graph = [[0,1,3,5,0,0,0,0,0,0],
 		[1,0,2,0,2,0,3,0,0,0],
@@ -27,4 +28,4 @@ def Bellman_Ford(mtx):
 							# print(pivot,node)
 							dist[node] = dist[pivot] + mtx[pivot][node]
 		sol.append(dist)
-	return sol
+	return np.array(sol)
