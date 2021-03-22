@@ -46,13 +46,13 @@ def Dijkstra(W):
         L[i][i] = 0  # setup all shortest path between a node and itself to 0
     for elem in L:
         S = []  # list of visited node
-        u = np.where(np.amin(elem) == elem)[0][0]
+        u = np.where(np.amin(elem) == elem)[0][0]  # first minimum in the line of the L matrix
         while len(elem) != len(S):
             if S:
-                u = custom_min_sup(elem, elem[u], S)
-            S.append(u)
-            for i in range(len(elem)):
+                u = custom_min_sup(elem, elem[u], S)  # take a vertex u with minimal L(u)
+            S.append(u)  # append vertex to visited node list
+            for i in range(len(elem)):  # for vertex not in S
                 if i not in S:
-                    if elem[u] + W[u][i] < elem[i]:
-                        elem[i] = elem[u] + W[u][i]
+                    if elem[u] + W[u][i] < elem[i]:  # if L(u) + w(u,v) < L(v)
+                        elem[i] = elem[u] + W[u][i]  # L(v) := L(u) + w(u,v)
     return L
