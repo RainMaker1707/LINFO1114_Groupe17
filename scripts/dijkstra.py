@@ -6,7 +6,7 @@ def custom_min_sup(A: (np.ndarray, np.generic), prev_min: float, visited_nodes: 
     :param A: list L of shortest path current states
     :param prev_min: previous_minimum registered
     :param visited_nodes: list of visited nodes
-    :return:
+    :return: int: index of vertex u with minimal A(u) not in visited_nodes
     """
     greater = []
     for i in range(len(A)):
@@ -44,8 +44,9 @@ def Dijkstra(W):
     L = np.full(W.shape, float('inf'))  # setup matrix L of all shortest path as infinite and same shape as W
     for i in range(W_shape_x):
         L[i][i] = 0  # setup all shortest path between a node and itself to 0
+
     for elem in L:
-        S = []  # list of visited node
+        S = []  # list of visited node as empty list
         u = np.where(np.amin(elem) == elem)[0][0]  # first minimum in the line of the L matrix
         while len(elem) != len(S):
             if S:
