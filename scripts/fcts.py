@@ -7,8 +7,7 @@ def csv_to_mtx(path):
 		with open(path) as file:
 			for line in file.readlines():
 				mtx.append(line.strip().split(","))
-				for i in range(len(mtx[-1])):
-					mtx[-1][i] = float(mtx[-1][i])
+				mtx[-1] = [float(mtx[-1][i]) for i in range(len(mtx[-1]))]
 	except FileNotFoundError:
-		pass
+		raise FileNotFoundError("File not found, path tested: '{}'".format(path))
 	return np.array(mtx)
