@@ -3,3 +3,5 @@
 .idea/
 
 scripts/__pycache__/
+
+__pycache__/

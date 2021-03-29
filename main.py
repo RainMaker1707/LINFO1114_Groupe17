@@ -5,6 +5,7 @@ DON T MAKE YOUR FUNCTIONS HERE PLEASE
 from scripts.fcts import csv_to_mtx
 from scripts.bellmanFord import Bellman_Ford
 from scripts.dijkstra import Dijkstra
+from test import run_test
 from datetime import datetime
 import argparse
 
@@ -46,13 +47,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', '--file', help="File .csv you want to use as costs graph", type=str)
     parser.add_argument('-v', '--verbose', help="Verbosity", action="store_true")
+    parser.add_argument('-t', '--tests', help="Run test before the main program", action="store_true")
+    parser.add_argument('-to', '--testOnly', help="Run test only and don't run main", action="store_true")
     args = parser.parse_args()
+
     if args.verbose:
         print('\t**********************\t')
         print('\t\tRunning')
         print('\t**********************\t\n')
 
-    if not args.file:
-        main(verbosity=args.verbose)
-    else:
-        main(path=args.file, verbosity=args.verbose)
+    if args.tests or args.testOnly:
+        run_test()
+
+    if not args.testOnly:
+        if not args.file:
+            main(verbosity=args.verbose)
+        else:
+            main(path=args.file, verbosity=args.verbose)
