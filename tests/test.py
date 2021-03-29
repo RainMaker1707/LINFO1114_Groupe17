@@ -16,7 +16,7 @@ class TestDijkstra(unittest.TestCase):
 
     def test_dijkstra_disjoint_points(self):
         return 1
-    
+
 
 class TestBellmanFord(unittest.TestCase):
     def test_bellman_ford(self):
@@ -29,4 +29,18 @@ class TestBellmanFord(unittest.TestCase):
         return 1
 
     def test_bellman_ford_disjoint_points(self):
+        return 1
+
+
+class TestFloydWarshall(unittest.TestCase):
+    def test_floyd_warshall(self):
+        return 1
+
+    def test_floyd_warshall_bad_matrix(self):
+        return 1
+
+    def test_floyd_warshall_one_disjoint_point(self):
+        return 1
+
+    def test_floyd_warshall_disjoint_points(self):
         return 1
