@@ -11,13 +11,13 @@ def custom_min_sup(A: (np.ndarray, np.generic), prev_min: float, visited_nodes: 
     greater = []
     for i in range(len(A)):
         if i not in visited_nodes:
-            if A[i] == prev_min:
+            if A[i] == prev_min:  # if index no registered in visited nodes and equal to previous minimum
                 return i
             if A[i] > prev_min:
-                greater.append((A[i], i))
+                greater.append((A[i], i))  # append (value, index)
     if greater:
-        greater.sort()
-        return greater[0][1]
+        greater.sort()  # sort by  value
+        return greater[0][1]  # return the minimum and first in list
     return -1
 
 
@@ -45,9 +45,9 @@ def Dijkstra(W):
     for i in range(W_shape_x):
         L[i][i] = 0  # setup all shortest path between a node and itself to 0
 
-    for elem in L:
+    for elem in L:  # repeat dijkstra for each line of L matrix
         S = []  # list of visited node as empty list
-        u = np.where(np.amin(elem) == elem)[0][0]  # first minimum in the line of the L matrix
+        u = np.where(np.amin(elem) == elem)[0][0]  # first minimum in the line of the L matrix equivalent to L(a) := 0
         while len(elem) != len(S):
             if S:
                 u = custom_min_sup(elem, elem[u], S)  # take a vertex u with minimal L(u)
