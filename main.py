@@ -9,8 +9,8 @@ from datetime import datetime
 import argparse
 
 
-def main(path: str = "res/graph.csv", time_v: bool = False):
-    if time_v:
+def main(path: str = "res/graph.csv", verbosity: bool = False):
+    if verbosity:
         print("\nFile to use: ", path, "\n")  # print the used file is verbosity is active in option
     else:
         print()  # add a blank line in top of file
@@ -22,7 +22,7 @@ def main(path: str = "res/graph.csv", time_v: bool = False):
     bellman_ford = Bellman_Ford(C)   # running Bellman_Ford algorithm and storing reference in bellman_ford identifier
     stop = datetime.now()  # get the stop time of the algorithm
     print("Bellman_Ford:\n", bellman_ford)  # print the matrix returned by Bellman_Ford algorithm
-    if time_v:
+    if verbosity:
         print("Running time: ", stop - start)  # print the running time of the algorithm if verbosity is active
     print('\n')
 
@@ -31,7 +31,7 @@ def main(path: str = "res/graph.csv", time_v: bool = False):
     dijkstra = Dijkstra(C)  # running Dijkstra algorithm and storing reference in dijkstra identifier
     stop = datetime.now()  # get the stop time of the algorithm
     print("Dijkstra:\n", dijkstra)  # print the matrix returned by Dijkstra algorithm
-    if time_v:
+    if verbosity:
         print("Running time: ", stop - start)  # print the running time of the algorithm if verbosity is active
     print('\n')
 
@@ -39,7 +39,7 @@ def main(path: str = "res/graph.csv", time_v: bool = False):
     floyd_warshall = []  # TODO call the algorithm of Floyd-Warshall here
     stop = datetime.now()  # get the stop time of the algorithm
     print("Floyd-Warshall:\n", floyd_warshall)  # print the matrix returned by Floyd_Warshall algorithm
-    if time_v:
+    if verbosity:
         print("Running time: ", stop - start)  # print the running time of the algorithm if verbosity is active
 
 
@@ -50,10 +50,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if args.verbose:
         print('\t**********************\t')
-        print('\tRunning')
+        print('\t\tRunning')
         print('\t**********************\t\n')
 
     if not args.file:
-        main(time_v=args.verbose)
+        main(verbosity=args.verbose)
     else:
-        main(args.file, args.verbose)
+        main(path=args.file, verbosity=args.verbose)
