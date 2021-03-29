@@ -24,16 +24,15 @@ def main(path: str = "res/graph.csv", verbosity: bool = False):
     print("Bellman_Ford:\n", bellman_ford)  # print the matrix returned by Bellman_Ford algorithm
     if verbosity:
         print("Running time: ", stop - start)  # print the running time of the algorithm if verbosity is active
-    print('\n')
-
     print()
+
     start = datetime.now()  # get the start time of the algorithm
     dijkstra = Dijkstra(C)  # running Dijkstra algorithm and storing reference in dijkstra identifier
     stop = datetime.now()  # get the stop time of the algorithm
     print("Dijkstra:\n", dijkstra)  # print the matrix returned by Dijkstra algorithm
     if verbosity:
         print("Running time: ", stop - start)  # print the running time of the algorithm if verbosity is active
-    print('\n')
+    print()
 
     start = datetime.now()  # get the start time of the algorithm
     floyd_warshall = []  # TODO call the algorithm of Floyd-Warshall here

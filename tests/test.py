@@ -1,4 +1,7 @@
 import unittest
+from scripts.dijkstra import Dijkstra
+from scripts.bellmanFord import Bellman_Ford
+from scripts.fcts import csv_to_mtx
 
 
 class TestDijkstra(unittest.TestCase):
