@@ -20,12 +20,16 @@ def Bellman_Ford(mtx):
 		dist = [float('inf') for _ in range(len(mtx))]
 		dist[start] = 0
 
+		# start bellman ford
+		# the maximum path between two point is n-1
 		for _ in range(len(mtx)-1):
 			for pivot in range(len(mtx)):
+				# ajust weight of each connection
 				for node in range(len(mtx)):
+					# only ajust if there is a connection between nodes
 					if mtx[pivot][node] != 0:
+						# ajust for the smalest path
 						if dist[node] > dist[pivot] + mtx[pivot][node]:
-							# print(pivot,node)
 							dist[node] = dist[pivot] + mtx[pivot][node]
 		sol.append(dist)
 	return np.array(sol)
