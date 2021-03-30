@@ -5,6 +5,7 @@ DON T MAKE YOUR FUNCTIONS HERE PLEASE
 from scripts.fcts import csv_to_mtx
 from scripts.bellmanFord import Bellman_Ford
 from scripts.dijkstra import Dijkstra
+from scripts.floydWarshall import Floyd_Warshall
 from test import run_test
 from datetime import datetime
 import argparse
@@ -36,7 +37,7 @@ def main(path: str = "res/graph.csv", verbosity: bool = False):
     print()
 
     start = datetime.now()  # get the start time of the algorithm
-    floyd_warshall = []  # TODO call the algorithm of Floyd-Warshall here
+    floyd_warshall = Floyd_Warshall(C)  # running Floyd-Warshall algorithm and storing reference in Floyd-Warshall identifier
     stop = datetime.now()  # get the stop time of the algorithm
     print("Floyd-Warshall:\n", floyd_warshall)  # print the matrix returned by Floyd_Warshall algorithm
     if verbosity:
