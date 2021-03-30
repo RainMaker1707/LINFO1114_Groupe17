@@ -13,3 +13,6 @@ int / float, int / float, int / float, ... , int / float\n pour chaque ligne d'e
 
 Les conditions du projet étant que le graphe est non dirigé une matrice non carré (n x n) et non symétrique sera refusé
 par l'implementation de dijkstra.
+
+Les algorithmes se trouvent dans le dossier "scripts"
+et les graphes de test dans le dossier "res".
