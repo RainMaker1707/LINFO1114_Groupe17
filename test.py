@@ -1,7 +1,9 @@
 import unittest
 from scripts.dijkstra import Dijkstra
 from scripts.bellmanFord import Bellman_Ford
+from scripts.floydWarshall import Floyd_Warshall
 from scripts.fcts import csv_to_mtx
+import numpy as np
 from os import system
 
 
@@ -9,56 +11,26 @@ def run_test():
     system('python3 test.py')
 
 
+TEST_PATHS = np.array(["res/test1.csv", "res/test2.csv"])
+SOLUTION_PATHS = np.array(["res/soluce1.csv", "res/soluce2.csv"])
+
+
 class TestDijkstra(unittest.TestCase):
-    def all_tests(self):
-        self.test_dijkstra()
-        self.test_dijkstra_bad_matrix()
-        self.test_dijkstra_two_same_path()
-        self.test_dijkstra_one_disjoint_point()
-        self.test_dijkstra_disjoint_points()
+    solutions = [csv_to_mtx(elem) for elem in SOLUTION_PATHS]
+    tests = [csv_to_mtx(elem) for elem in TEST_PATHS]
 
     def test_dijkstra(self):
-        self.assertEqual(0, 0)
-        return 1
+        for i in range(len(self.tests)):
+            self.assertTrue(np.allclose(Dijkstra(self.tests[i]), self.solutions[i]))
 
-    def test_dijkstra_bad_matrix(self):
-        return 1
-
-    def test_dijkstra_two_same_path(self):
-        return 1
-
-    def test_dijkstra_one_disjoint_point(self):
-        return 1
-
-    def test_dijkstra_disjoint_points(self):
-        return 1
-
-
-class TestBellmanFord(unittest.TestCase):
     def test_bellman_ford(self):
+        for i in range(len(self.tests)):
+            self.assertTrue(np.allclose(Bellman_Ford(self.tests[i]), self.solutions[i]))
         return 1
 
-    def test_bellman_ford_bad_matrix(self):
-        return 1
-
-    def test_bellman_ford_one_disjoint_point(self):
-        return 1
-
-    def test_bellman_ford_disjoint_points(self):
-        return 1
-
-
-class TestFloydWarshall(unittest.TestCase):
     def test_floyd_warshall(self):
-        return 1
-
-    def test_floyd_warshall_bad_matrix(self):
-        return 1
-
-    def test_floyd_warshall_one_disjoint_point(self):
-        return 1
-
-    def test_floyd_warshall_disjoint_points(self):
+        for i in range(len(self.tests)):
+            self.assertTrue(np.allclose(Floyd_Warshall(self.tests[i]), self.solutions[i]))
         return 1
 
 
