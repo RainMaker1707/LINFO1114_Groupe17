@@ -48,11 +48,12 @@ def Dijkstra(W):
     for elem in L:  # repeat dijkstra for each line of L matrix
         S = []  # list of visited node as empty list
         u = np.where(np.amin(elem) == elem)[0][0]  # first minimum in the line of the L matrix equivalent to L(a) := 0
-        while len(elem) != len(S):
+        len_elem = len(elem)  # micro optimisation to not call len(elem) in loop
+        while len_elem != len(S):
             if S:
                 u = custom_min_sup(elem, elem[u], S)  # take a vertex u with minimal L(u)
             S.append(u)  # append vertex to visited node list
-            for i in range(len(elem)):  # for vertex not in S
+            for i in range(len_elem):  # for vertex not in S
                 if i not in S:
                     if elem[u] + W[u][i] < elem[i]:  # if L(u) + w(u,v) < L(v)
                         elem[i] = elem[u] + W[u][i]  # L(v) := L(u) + w(u,v)
