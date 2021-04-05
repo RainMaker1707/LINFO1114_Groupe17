@@ -55,6 +55,6 @@ def Dijkstra(W):
             S.append(u)  # append vertex to visited node list
             for i in range(len_elem):  # for vertex not in S
                 if i not in S:
-                    if elem[u] + W[u][i] < elem[i]:  # if L(u) + w(u,v) < L(v)
-                        elem[i] = elem[u] + W[u][i]  # L(v) := L(u) + w(u,v)
+                    if elem[u] + W[u, i] < elem[i]:  # if L(u) + w(u,v) < L(v)
+                        elem[i] = elem[u] + W[u, i]  # L(v) := L(u) + w(u,v)
     return L
