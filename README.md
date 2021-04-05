@@ -1,11 +1,11 @@
 # LINFO1114_Groupe17
 Projet dans le cadre du cours LINFO1114 - Mathématiques discrètes de l'UCLouvain
 
-Différentes commandes vous sont accessible: \
+Différentes commandes vous sont accessible:
 - -v, --verbose: affiche le fichier csv choisi et le temps d'exécution des différents algorithmes.
 - -t, --test: Permet de faire tourner les test avant le programme main.
 - -to, --testOnly: Permet de faire tourner uniquement les tests.
-- -f FILE, --file FILE: vous permet de pséxcifier un ficheir .csv d'entrée qui sera transofrmer en matrice et utilisé 
+- -f FILE, --file FILE: vous permet de spécifier un fichier .csv d'entrée qui sera transofrmer en matrice et utilisé 
 afin de faire tourner nos algorithmes.
 
 Merci d'utiliser des fichiers .csv ou de n'importe quel format respectant la syntaxe:
