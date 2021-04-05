@@ -37,7 +37,7 @@ def main(path: str = "res/graph.csv", verbosity: bool = False):
     print()
 
     start = datetime.now()  # get the start time of the algorithm
-    floyd_warshall = Floyd_Warshall(C)  # running Floyd-Warshall algorithm and storing reference in Floyd-Warshall identifier
+    floyd_warshall = Floyd_Warshall(C)  # running Floyd-Warshall algorithm and storing reference in identifier
     stop = datetime.now()  # get the stop time of the algorithm
     print("Floyd-Warshall:\n", floyd_warshall)  # print the matrix returned by Floyd_Warshall algorithm
     if verbosity:
